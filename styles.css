@@ -1,0 +1,187 @@
+:root {
+  --sage: #a5b378;
+  --olive: #72805b;
+  --yellow: #e8d55b;
+  --ink: #302c2a;
+  --cream: #faf7f4;
+  --white: #ffffff;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--white);
+  background: var(--sage);
+}
+
+h1, h2, h3 { font-family: "Playfair Display", serif; font-weight: 400; margin: 0 0 1rem; }
+a { color: inherit; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0.75rem 2rem;
+  background: var(--sage);
+  border-bottom: 2px solid var(--white);
+}
+.brand {
+  font-family: "Mrs Saint Delafield", cursive;
+  font-size: 2.4rem;
+  color: var(--yellow);
+  text-decoration: none;
+  line-height: 1;
+}
+nav { display: flex; gap: 1.75rem; }
+nav a {
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+nav a:hover, nav a:focus-visible { color: var(--yellow); }
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--white);
+  color: var(--white);
+  padding: 0.4rem 0.9rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+.hero {
+  text-align: center;
+  padding: 5rem 1.5rem 6rem;
+}
+.script {
+  font-family: "Mrs Saint Delafield", cursive;
+  font-size: clamp(4rem, 12vw, 7rem);
+  color: var(--yellow);
+  margin: 0;
+  line-height: 1;
+}
+.byline { font-size: 1.5rem; margin: 0.5rem 0 2.5rem; letter-spacing: 0.05em; }
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.lead { max-width: 36rem; margin: 0 auto 2rem; font-weight: 300; font-size: 1.3rem; }
+
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  background: var(--ink);
+  color: var(--white);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.btn:hover, .btn:focus-visible { background: var(--olive); }
+
+.section { padding: 4rem 1.5rem; }
+.section.dark { background: var(--ink); }
+.narrow { max-width: 42rem; margin: 0 auto; }
+.center { text-align: center; }
+
+.band {
+  background: var(--olive);
+  border-top: 2px solid var(--white);
+  border-bottom: 2px solid var(--white);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  padding: 1.25rem 1rem;
+  margin: 0 -1.5rem 3rem;
+}
+.script-heading {
+  font-family: "Mrs Saint Delafield", cursive;
+  color: var(--yellow);
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.cards {
+  max-width: 70rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 2rem;
+}
+.card { padding: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.6); }
+.card h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 1.4rem;
+  color: var(--ink);
+}
+.card ul { margin: 0; padding-left: 1.2rem; font-weight: 300; }
+.card li { margin-bottom: 0.35rem; }
+
+.steps {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+.steps li {
+  counter-increment: step;
+  position: relative;
+  background: var(--cream);
+  color: var(--ink);
+  padding: 1rem 1rem 1rem 4.25rem;
+  margin-bottom: 1rem;
+}
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 2px solid var(--olive);
+  color: var(--olive);
+  display: grid;
+  place-items: center;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+}
+
+.site-footer {
+  background: var(--ink);
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.site-footer p { margin: 0.25rem 0; }
+.handle { letter-spacing: 0.3em; font-weight: 600; }
+
+:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+
+@media (max-width: 700px) {
+  .site-header { padding: 0.75rem 1rem; }
+  .nav-toggle { display: block; }
+  nav { display: none; flex-direction: column; width: 100%; gap: 0.75rem; padding: 1rem 0; }
+  nav.open { display: flex; }
+}
