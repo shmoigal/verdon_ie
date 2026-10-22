@@ -5,8 +5,7 @@
   --ink: #302c2a;
   --cream: #faf7f4;
   --white: #ffffff;
-  /* Closest free match to the commercial "Madelyn" font in the reference. */
-  --hand: "Gaegu", "Comic Sans MS", cursive;
+  --script: "Great Vibes", cursive;
 }
 
 * { box-sizing: border-box; }
@@ -38,8 +37,8 @@ a { color: inherit; }
   border-bottom: 2px solid var(--white);
 }
 .brand {
-  font-family: "Mrs Saint Delafield", cursive;
-  font-size: 2.4rem;
+  font-family: var(--script);
+  font-size: 2rem;
   color: var(--yellow);
   text-decoration: none;
   line-height: 1;
@@ -68,21 +67,20 @@ nav a:hover, nav a:focus-visible { color: var(--yellow); }
   padding: 5rem 1.5rem 6rem;
 }
 .script {
-  font-family: "Mrs Saint Delafield", cursive;
-  font-size: clamp(4rem, 12vw, 7rem);
+  font-family: var(--script);
+  font-size: clamp(3.5rem, 10vw, 6rem);
   color: var(--yellow);
   margin: 0;
   line-height: 1;
 }
 .byline { font-size: 1.5rem; margin: 0.5rem 0 2.5rem; letter-spacing: 0.05em; }
 .hero h1 {
-  font-family: var(--hand);
-  font-weight: 700;
-  font-size: clamp(2.4rem, 6vw, 4.2rem);
-  line-height: 1.15;
+  font-style: italic;
+  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+  line-height: 1.2;
   color: var(--white);
 }
-.lead { max-width: 36rem; margin: 0 auto 2rem; font-family: var(--hand); font-size: 1.7rem; }
+.lead { max-width: 36rem; margin: 0 auto 2rem; font-weight: 300; font-size: 1.3rem; }
 
 .btn {
   display: inline-block;
@@ -115,9 +113,9 @@ nav a:hover, nav a:focus-visible { color: var(--yellow); }
   margin: 0 -1.5rem 3rem;
 }
 .script-heading {
-  font-family: "Mrs Saint Delafield", cursive;
+  font-family: var(--script);
   color: var(--yellow);
-  font-size: 3.5rem;
+  font-size: 3rem;
   line-height: 1;
 }
 
