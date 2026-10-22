@@ -5,6 +5,8 @@
   --ink: #302c2a;
   --cream: #faf7f4;
   --white: #ffffff;
+  /* Closest free match to the commercial "Madelyn" font in the reference. */
+  --hand: "Gaegu", "Comic Sans MS", cursive;
 }
 
 * { box-sizing: border-box; }
@@ -74,12 +76,13 @@ nav a:hover, nav a:focus-visible { color: var(--yellow); }
 }
 .byline { font-size: 1.5rem; margin: 0.5rem 0 2.5rem; letter-spacing: 0.05em; }
 .hero h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  color: var(--ink);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  line-height: 1.15;
+  color: var(--white);
 }
-.lead { max-width: 36rem; margin: 0 auto 2rem; font-weight: 300; font-size: 1.3rem; }
+.lead { max-width: 36rem; margin: 0 auto 2rem; font-family: var(--hand); font-size: 1.7rem; }
 
 .btn {
   display: inline-block;
