@@ -1,10 +1,12 @@
 :root {
   --sage: #a5b378;
-  --olive: #72805b;
+  --olive: #56643f;
   --yellow: #e8d55b;
   --ink: #302c2a;
   --cream: #faf7f4;
   --white: #ffffff;
+  --light-gray: #e9e8e9;
+  --dark-gray: #454648;
   --script: "Great Vibes", cursive;
 }
 
@@ -17,8 +19,8 @@ body {
   font-weight: 400;
   font-size: 1.1rem;
   line-height: 1.6;
-  color: var(--white);
-  background: var(--sage);
+  color: var(--dark-gray);
+  background: var(--light-gray);
 }
 
 h1, h2, h3 { font-family: "Playfair Display", serif; font-weight: 400; margin: 0 0 1rem; }
@@ -34,12 +36,12 @@ a { color: inherit; }
   flex-wrap: wrap;
   padding: 0.75rem 2rem;
   background: var(--sage);
-  border-bottom: 2px solid var(--white);
+  border-bottom: 1px solid rgba(48, 44, 42, 0.15);
 }
 .brand {
   font-family: var(--script);
   font-size: 2rem;
-  color: var(--yellow);
+  color: var(--ink);
   text-decoration: none;
   line-height: 1;
 }
@@ -51,12 +53,12 @@ nav a {
   font-size: 0.85rem;
   font-weight: 600;
 }
-nav a:hover, nav a:focus-visible { color: var(--yellow); }
+nav a:hover, nav a:focus-visible { color: var(--olive); }
 .nav-toggle {
   display: none;
   background: none;
-  border: 1px solid var(--white);
-  color: var(--white);
+  border: 1px solid var(--ink);
+  color: var(--ink);
   padding: 0.4rem 0.9rem;
   font: inherit;
   cursor: pointer;
@@ -64,12 +66,12 @@ nav a:hover, nav a:focus-visible { color: var(--yellow); }
 
 .hero {
   text-align: center;
-  padding: 5rem 1.5rem 6rem;
+  padding: clamp(4rem, 9vw, 7rem) 1.5rem;
 }
 .script {
   font-family: var(--script);
   font-size: clamp(3.5rem, 10vw, 6rem);
-  color: var(--yellow);
+  color: var(--olive);
   margin: 0;
   line-height: 1;
 }
@@ -78,9 +80,9 @@ nav a:hover, nav a:focus-visible { color: var(--yellow); }
   font-style: italic;
   font-size: clamp(2.2rem, 5.5vw, 3.8rem);
   line-height: 1.2;
-  color: var(--white);
+  color: var(--ink);
 }
-.lead { max-width: 36rem; margin: 0 auto 2rem; font-weight: 300; font-size: 1.3rem; }
+.lead { max-width: 36rem; margin: 0 auto 2rem; font-weight: 400; font-size: 1.3rem; }
 
 .btn {
   display: inline-block;
@@ -97,20 +99,22 @@ nav a:hover, nav a:focus-visible { color: var(--yellow); }
 .btn:hover, .btn:focus-visible { background: var(--olive); }
 
 .section { padding: 4rem 1.5rem; }
-.section.dark { background: var(--ink); }
+.section.dark { background: var(--ink); color: var(--white); }
+.section.dark .btn { background: var(--sage); color: var(--ink); }
+.section.dark .btn:hover, .section.dark .btn:focus-visible { background: var(--olive); color: var(--white); }
 .narrow { max-width: 42rem; margin: 0 auto; }
 .center { text-align: center; }
 
 .band {
-  background: var(--olive);
-  border-top: 2px solid var(--white);
-  border-bottom: 2px solid var(--white);
+  max-width: 70rem;
+  margin: 0 auto 3rem;
+  background: var(--sage);
+  color: var(--ink);
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: clamp(1.6rem, 4vw, 2.6rem);
   padding: 1.25rem 1rem;
-  margin: 0 -1.5rem 3rem;
 }
 .script-heading {
   font-family: var(--script);
@@ -126,7 +130,11 @@ nav a:hover, nav a:focus-visible { color: var(--yellow); }
   grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
   gap: 2rem;
 }
-.card { padding: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.6); }
+.card {
+  padding: 1.5rem;
+  background: var(--cream);
+  border: 1px solid rgba(48, 44, 42, 0.12);
+}
 .card h3 {
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -146,11 +154,13 @@ nav a:hover, nav a:focus-visible { color: var(--yellow); }
 .steps li {
   counter-increment: step;
   position: relative;
-  background: var(--cream);
+  background: var(--white);
   color: var(--ink);
   padding: 1rem 1rem 1rem 4.25rem;
   margin-bottom: 1rem;
+  border: 1px solid rgba(48, 44, 42, 0.12);
 }
+.steps a { color: var(--olive); font-weight: 600; }
 .steps li::before {
   content: counter(step);
   position: absolute;
@@ -170,6 +180,7 @@ nav a:hover, nav a:focus-visible { color: var(--yellow); }
 
 .site-footer {
   background: var(--ink);
+  color: var(--white);
   text-align: center;
   padding: 2rem 1rem;
   font-size: 0.9rem;
@@ -178,11 +189,12 @@ nav a:hover, nav a:focus-visible { color: var(--yellow); }
 .site-footer p { margin: 0.25rem 0; }
 .handle { letter-spacing: 0.3em; font-weight: 600; }
 
-:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+:focus-visible { outline: 3px solid var(--olive); outline-offset: 2px; }
+.section.dark :focus-visible, .site-footer :focus-visible { outline-color: var(--yellow); }
 
 @media (max-width: 700px) {
   .site-header { padding: 0.75rem 1rem; }
   .nav-toggle { display: block; }
-  nav { display: none; flex-direction: column; width: 100%; gap: 0.75rem; padding: 1rem 0; }
+  nav { display: none; flex-direction: column; width: 100%; gap: 0.75rem; padding: 1rem 0 0.25rem; }
   nav.open { display: flex; }
 }
